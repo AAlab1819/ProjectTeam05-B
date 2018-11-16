@@ -12,31 +12,37 @@ This Repository will solve Codeforces' problem [62A](http://codeforces.com/probl
 
 ## Sample I/O
 **Sample #1:**
+
 _In:_
 ```
 5 1
 10 5
 ```
+
 _Out:_
 ```
 YES
 ```
 **Sample #2:**
+
 _In:_
 ```
 4 5
 3 3
 ```
+
 _Out:_
 ```
 YES
 ```
 **Sample #3:**
+
 _In:_
 ```
 1 2
 11 6
 ```
+
 _Out:_
 ```
 NO
