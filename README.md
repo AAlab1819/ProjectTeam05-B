@@ -50,3 +50,16 @@ NO
 
 ## Explanation
 ### Problem Statement
+In this problem, we must find out whether the boy and girl can hold hands comfortably together or not. Since the two are basically aliens, they can have fingers less than, equal to, or more than human fingers. The user determines the number of fingers by input:
+```
+    int f1, f2;
+    int m1, m2;
+
+    cin >> f1 >> f2;
+    cin >> m1 >> m2;
+```
+### Greedy Solution
+Submission link: https://codeforces.com/contest/62/submission/45874756
+-coming soon-
+
+
