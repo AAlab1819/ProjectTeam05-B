@@ -110,7 +110,7 @@ Afterwards, the program goes to a series of ```if``` conditions to check whether
         cout << "NO";
     }
  ```
- The first test involves ```f1```and ```m2``` (boy goes to the left). The program will check whether their hands can fit together by checking the girl's fingers - ```1``` (without overlapping/extra finger) and then comparing it with the amount of fingers in the boy's right hand. The program will also test the size of ```2 x (girl's fingers + 1)``` and compare it with the boy's right hand to determine whether the two hands can fit together or not. The program determines this by checking if the amount of the boy's right hand fingers is equal to or more than the girl's left fingers. If ```f1``` and ```m2``` satisfies the two conditions above, the program will print ```YES```. 
+ The first test involves ```f1```and ```m2``` (boy goes to the left). The program will check whether their hands can fit together by checking the girl's fingers - ```1``` (without overlapping/extra finger) and then comparing it with the amount of fingers in the boy's right hand. The program will also test the size of ```2 x (girl's fingers + 1)``` (making sure that the number of girl's fingers isn't that much different than the boy's) and compare it with the boy's right hand to determine whether the two hands can fit together or not. The program determines this by checking if the amount of the boy's right hand fingers is equal to or more than the girl's left fingers. If ```f1``` and ```m2``` satisfies the two conditions above, the program will print ```YES```. 
  
  If not, the program will proceed to the second test with ```f2``` and ```m1``` (boy goes to the right). Compare the modified number of ```f2``` with ```m1``` and print ```YES``` if ```f2``` and ```m1``` satisfies the two conditions. 
  
@@ -123,7 +123,7 @@ Afterwards, the program goes to a series of ```if``` conditions to check whether
  
 The DP approach for this particular problem isn't much different than using Greedy. Instead of solving one problem first and proceed to the next if no desirable result is found, the program will test the two possibilites (left and right) seperately. First the program will declare an array as global variable:
 ```
-int pass[4] = {0,0,0,0}; 
+int pass[2] = {0,0}; 
 ```
 Next, the program will declare a ```void``` function called ```test``` where each individual problems with variable values taken from the ```main``` function whenever it is called:
 ```
@@ -153,10 +153,29 @@ void test (int f, int m)
 The function will check whether the values satisfy the conditions on the ```if``` using the same checking formula as the Greedy solution. If a condition is passed, the function will write the current index of the array ```pass``` to ```1``` (the index is determined by the variable ```checker``` which starts from ```0``` each time the function ```test``` is called) and increase the index count by ```1``` and proceed to the second test.
 
 In the main function, the program will intialize the variables and get user input for the ```4``` variables before initializing the modofiers for the girl's arms based on the user input. Then the program will go into a ```for``` loop and test ```f1``` and ```m2``` by passing their values to the function ```test``` and write the results to the array ```pass```. After that, repeat the loop and test ```f2``` and ```m1```.
-
-Afterwards, verify whether the two can hold hands or not by checking the ```pass``` array. If either index ```0``` and ```1``` or ```2``` and ```3``` equals to ```1```, print ```YES```, otherwise, print ```NO```
+```
+for (int a = 0; a < 2; a++)
+    {
+        if (a == 0)
+        {
+            test (f1,m2);
+        }
+        
+        if (a == 1)
+        {
+            test (f2,m1);
+        }
+}
+```
+Afterwards, verify whether the two can hold hands or not by checking the ```pass``` array. If both index ```0``` and ```1``` has a value of ```1```, print ```YES``` to indicate that one of the tests have passed. Otherwise, print ```NO``` when no tests passed.
 
 Complexity:  ```O(2)``` as the program runs two different tests/sub-problems instead of ```n``` user-generated problems/sub-problems.
+
+Additional notes:
+* There are only two sub-problems for this particular problem that can be solved individually using DP approach
+* Only one of the two tests may succeed. If the first test (```f1``` and ```m2``` succeeded, the second test will fail but will not overwrite the result of the first test as ```checker``` is reset to ```0``` in the next test to prevent the array from being overwritten)
+* The variable ```checker``` in the function ```test``` is always set to ```0``` whenever the function is called so that the program can write ```1``` into the only indexes in the array if the sub-problem has passed the two tests in the function (index ```0``` and ```1```)
+
 
 ### Comparison
 We ran several different tests (with increasing values) to obtain the runtime differences between the two approaches:
