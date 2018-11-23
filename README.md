@@ -15,7 +15,7 @@ You can install CodeBlocks or Dev-C++ with their preinstalled compilers and runn
 
 For manual compiling, follow the steps below:
 
-1. Download a relaible C++ compiler (GNU GCC or MinGW - https://sourceforge.net/projects/mingw/)
+1. Download a reliable C++ compiler (GNU GCC or MinGW - https://sourceforge.net/projects/mingw/)
 2. Install the compiler at your prefered directory
 3. Open ```File Explorer```, right click ```This PC```
 4. Click ```Advanced System Settings```
