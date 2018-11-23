@@ -17,7 +17,7 @@ For manual compiling, follow the steps below:
 
 1. Download a relaible C++ compiler (GNU GCC or MinGW - https://sourceforge.net/projects/mingw/)
 2. Install the compiler at your prefered directory
-3. Open File Explorer/My Computer, right click ```This PC```
+3. Open ```File Explorer```, right click ```This PC```
 4. Click ```Advanced System Settings```
 5. Click ```Envinronment Variables```
 6. On ```System Variables```, find ```Path```, click it to highlight the option and click ```Edit```
@@ -29,6 +29,8 @@ For manual compiling, follow the steps below:
     
     ```Note: remove the brackets - for filename.cpp, enter the exact same name as the code file in the folder. For programname.exe, enter any name you want for the executable file that will be created.```
 11. If succeeded, click ```(programname).exe``` to run the program
+
+Note: The above guide was written with Windows 10 in mind
 
 Video reference: https://www.youtube.com/watch?v=xuQL_BZydS0
 
