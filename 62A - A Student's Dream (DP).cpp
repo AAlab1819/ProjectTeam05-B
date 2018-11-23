@@ -66,7 +66,4 @@ int main()
     {
         cout << "NO";     //Print "NO"
     }
-
-
-
 }
