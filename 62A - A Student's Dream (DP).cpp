@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int pass[4] = {0,0,0,0};    //Initialize result array
+int pass[2] = {0,0};    //Initialize result array
 
 //Function to test whether the two can hold hands comfortably with the given parameters (check main function)
 void test (int f, int m)
@@ -56,7 +56,7 @@ int main()
     }
   
     //Following the previous tests, if they are successful as indicated with pass[0] & pass[1] == 1
-    if (pass[0] == 1 && pass[1] == 1 || pass[2] == 1 && pass[3] == 1)
+    if (pass[0] == 1 && pass[1] == 1)
     {
         cout << "YES";      //Print "YES"
     }
