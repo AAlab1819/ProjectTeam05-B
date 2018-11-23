@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    double start_time = omp_get_wtime();      //Get program runtime upon initialization
+    int start_time = omp_get_wtime();      //Get program runtime upon initialization
     
     int f1, f2;     //Initialize Venusian girl's fingers (left and right)
     int m1, m2;     //Initialize Martian boy's fingers (left and right)
@@ -39,7 +39,7 @@ int main()
         cout << "NO";   //Print "NO" as all tests have failed
     }
     
-    double time = omp_get_wtime() - start_time;     //Get program final runtime
+    int time = omp_get_wtime() - start_time;        //Get program final runtime
     
     cout << "\nTime Taken = " << time << endl;      //Print program runtime
 }
