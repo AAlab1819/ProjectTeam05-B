@@ -161,17 +161,19 @@ Complexity:  ```O(2)``` as the program runs two different tests/sub-problems ins
 ### Comparison
 We ran several different tests (with increasing values) to obtain the runtime differences between the two approaches:
 ```
-f1   | f2   | m1   | m2   |  Greedy   | Dp
-5    | 1    | 10   | 5    |  3.74     | 15.42944035
-4    | 5    |  3   | 3    |  10.806   | 15.42944102
-1    | 2    | 11   | 6    |  11.788   | 15.42944133
-20   | 22   | 25   | 29   |  10.148   | 15.42944171
-25   | 50   | 75   | 85   |  15.722   | 15.42944198
-100  | 101  | 199  | 150  |  11.764   | 15.42944226
-250  | 800  | 950  | 1500 |  16.111   | 15.42944257
-2000 | 2018 | 5009 | 9999 |  18.733   | 15.42944288
+f1   | f2   | m1   | m2   |  Greedy  |    Dp
+5    | 1    | 10   | 5    |  374     | 1542944035
+4    | 5    |  3   | 3    |  10806   | 1542944102
+1    | 2    | 11   | 6    |  11788   | 1542944133
+20   | 22   | 25   | 29   |  10148   | 1542944171
+25   | 50   | 75   | 85   |  15722   | 1542944198
+100  | 101  | 199  | 150  |  11764   | 1542944226
+250  | 800  | 950  | 1500 |  16111   | 1542944257
+2000 | 2018 | 5009 | 9999 |  18733   | 1542944288
+
+(running time are in integer format)
 ```
-Based on the following tests, we can conclude that the Greedy apporach is the most efficient approach to solve the problem.
+Based on the following tests, we can conclude that the Greedy apporach is the most efficient approach to solve the problem since the Greedy approach tests at least one sub-problem instead of solving all two sub-problems sequentially. Greedy approach performs two comparisons for every sub-problem (each preceeded with two basic/simple calculations) whilst the DP approach solves every sub-problem in a seperate function and each solution is stored in the array. DP also involves the creation of an array with the size of ```4``` whilst the Greedy solution uses no array at all and directly performs all calculations needed to get the desired output.
 
 
 
