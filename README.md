@@ -156,9 +156,22 @@ In the main function, the program will intialize the variables and get user inpu
 
 Afterwards, verify whether the two can hold hands or not by checking the ```pass``` array. If either index ```0``` and ```1``` or ```2``` and ```3``` equals to ```1```, print ```YES```, otherwise, print ```NO```
 
-Complexity:  -coming soon-
+Complexity:  ```O(2)``` as the program runs two different tests/sub-problems instead of ```n``` user-generated problems/sub-problems.
 
-
+### Comparison
+We ran several different tests (with increasing values) to obtain the runtime differences between the two approaches:
+```
+f1   | f2   | m1   | m2   |  Greedy   | Dp
+5    | 1    | 10   | 5    |  3.74     | 15.42944035
+4    | 5    |  3   | 3    |  10.806   | 15.42944102
+1    | 2    | 11   | 6    |  11.788   | 15.42944133
+20   | 22   | 25   | 29   |  10.148   | 15.42944171
+25   | 50   | 75   | 85   |  15.722   | 15.42944198
+100  | 101  | 199  | 150  |  11.764   | 15.42944226
+250  | 800  | 950  | 1500 |  16.111   | 15.42944257
+2000 | 2018 | 5009 | 9999 |  18.733   | 15.42944288
+```
+Based on the following tests, we can conclude that the Greedy apporach is the most efficient approach to solve the problem.
 
 
 
