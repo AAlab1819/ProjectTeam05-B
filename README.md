@@ -10,6 +10,28 @@ This Repository will solve Codeforces' problem [62A](http://codeforces.com/probl
 ## Requirement
 - [C++ 14] 
 
+## Compiling/Running Instructions
+You can install CodeBlocks or Dev-C++ with their preinstalled compilers and running the program through there.
+
+For manual compiling, follow the steps below:
+
+1. Download a relaible C++ compiler (GNU GCC or MinGW - https://sourceforge.net/projects/mingw/)
+2. Install the compiler at your prefered directory
+3. Open File Explorer/My Computer, right click ```This PC```
+4. Click ```Advanced System Settings```
+5. Click ```Envinronment Variables```
+6. On ```System Variables```, find ```Path```, click it to highlight the option and click ```Edit```
+7. Click ```Browse``` and find the ```bin``` folder of the recently installed compiler on your computer
+   Location should be in ```drivename\...\(installation folder\MinGW\bin```
+8. Click ```OK``` on all windows and then open ```Command Prompt```
+9. Use ```cd\(folder where the code is downloaded and stored)``` to navigate the terminal to the folder where you stored the code.
+10. Use the following command to compile the code: ```g++ (filename).cpp -o (programname).exe -fopenmp```
+    
+    ```Note: remove the brackets - for filename.cpp, enter the exact same name as the code file in the folder. For programname.exe, enter any name you want for the executable file that will be created.```
+11. If succeeded, click ```(programname).exe``` to run the program
+
+Video reference: https://www.youtube.com/watch?v=xuQL_BZydS0
+
 ## Sample I/O
 **Sample #1:**
 
