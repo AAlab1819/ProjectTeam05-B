@@ -119,7 +119,7 @@ Afterwards, the program goes to a series of ```if``` conditions to check whether
  Complexity: ```O(1)```, the program only peforms variable initialization, user input, and comparisons within constant time
  
  ### DP Solution
- Submission link: https://codeforces.com/contest/62/submission/45871856
+ Submission link: https://codeforces.com/contest/62/submission/46109417
  
 The DP approach for this particular problem isn't much different than using Greedy. Instead of solving one problem first and proceed to the next if no desirable result is found, the program will test the two possibilites (left and right) seperately. First the program will declare an array as global variable:
 ```
@@ -173,7 +173,7 @@ f1   | f2   | m1   | m2   |  Greedy  |    Dp
 
 (running time are in integer format)
 ```
-Based on the following tests, we can conclude that the Greedy apporach is the most efficient approach to solve the problem since the Greedy approach tests at least one sub-problem instead of solving all two sub-problems sequentially. Greedy approach performs two comparisons for every sub-problem (each preceeded with two basic/simple calculations) whilst the DP approach solves every sub-problem in a seperate function and each solution is stored in the array. DP also involves the creation of an array with the size of ```4``` whilst the Greedy solution uses no array at all and directly performs all calculations needed to get the desired output.
+Based on the following tests, we can conclude that the Greedy apporach is the most efficient approach to solve the problem since the Greedy approach tests at least one sub-problem instead of solving all two sub-problems sequentially. Greedy approach performs two comparisons for every sub-problem (each preceeded with two basic/simple calculations) whilst the DP approach solves every sub-problem in a seperate function and each solution is stored in the array. DP also involves the creation of an array with the size of ```2``` at the start of the program whilst the Greedy solution uses no array at all and directly performs all calculations needed to get the desired output.
 
 
 
