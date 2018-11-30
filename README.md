@@ -25,10 +25,20 @@ For manual compiling, follow the steps below:
    Location should be in ```drivename\...\(installation folder\MinGW\bin```
 8. Click ```OK``` on all windows and then open ```Command Prompt```
 9. Use ```cd\(folder where the code is downloaded and stored)``` to navigate the terminal to the folder where you stored the code.
-10. Use the following command to compile the code: ```g++ (filename).cpp -o (programname).exe -fopenmp```
-    
-    ```Note: remove the brackets - for filename.cpp, enter the exact same name as the code file in the folder. For programname.exe, enter any name you want for the executable file that will be created.```
-11. If succeeded, click ```(programname).exe``` to run the program
+10. Use the following command to compile the code: ```g++ (filename).cpp -o (programname).exe```
+11. To compile the timer codes, use the following command: ```g++ (filename).cpp -fopenmp -o(programname.exe)```
+
+Note: remove the brackets - for ```filename.cpp```, enter the exact same name as the code file in the folder. For ```programname.exe```, enter any name you want for the executable file that will be created. The executable file can have the same name as the source code.
+
+Example = ```g++ yourfilename.cpp -o yourfilename.exe```
+
+For filename with spaces, use ```" "``` within the filename.
+
+Example = ```g++ "62A - A Student's Dream (DP).cpp" -o output.exe```
+
+If it doesn't work, try renaming the file(s) and remove any spaces in it
+
+12. If succeeded, click ```(programname).exe``` to run the program
 
 Note: The above guide was written with Windows 10 in mind
 
@@ -146,6 +156,9 @@ int test (int f, int m)
     return checker;
 
 }
+
+pass[0] = max(test(f[0],m[1]),test(f[1],m[0]));
+pass2[0] = max(test(m[1],f[0]),test(m[0],f[1]));
 ```
 The function will set the modifiers on the first function passed and perform two tests to determine whether the two can hold hands or not. The input is deemed a valid answer (```YES```) if the returned value of checker is ```2``` (all two tests passed).
 
@@ -159,20 +172,23 @@ Complexity: ```O(n)```
 ### Comparison
 We ran several different tests (with increasing values) to obtain the runtime differences between the two approaches:
 ```
-f1   | f2   | m1   | m2   |  Greedy  |    Dp
-5    | 1    | 10   | 5    |  374     | 1542944035
-4    | 5    |  3   | 3    |  10806   | 1542944102
-1    | 2    | 11   | 6    |  11788   | 1542944133
-20   | 22   | 25   | 29   |  10148   | 1542944171
-25   | 50   | 75   | 85   |  15722   | 1542944198
-100  | 101  | 199  | 150  |  11764   | 1542944226
-250  | 800  | 950  | 1500 |  16111   | 1542944257
-2000 | 2018 | 5009 | 9999 |  18733   | 1542944288
+f1   | f2   | m1   | m2   |  Greedy |  Dp
+5    | 1    | 10   | 5    |  15.341 | 3.712
+4    | 5    |  3   | 3    |  4.891  | 5.79
+1    | 2    | 11   | 6    |  6.925  | 7.52
+20   | 22   | 25   | 29   |  7.951  | 7.347
+25   | 50   | 75   | 85   |  8.841  | 7.82
+100  | 101  | 199  | 150  |  15.17  | 7.251
+250  | 800  | 950  | 1500 |  11.842 | 10.811
+2000 | 2018 | 5009 | 9999 |  11.001 | 8.79
 
-(running time are in integer format)
+Greedy Average = 10.24525
+
+DP Average = 7.380125
+
+(running time are in double format)
 ```
-Based on the following tests, we can conclude that the Greedy apporach is the most efficient approach to solve the problem since the Greedy approach tests at least one sub-problem instead of solving all two sub-problems sequentially. Greedy approach performs two comparisons for every sub-problem (each preceeded with two basic/simple calculations) whilst the DP approach solves every sub-problem in a seperate function and each solution is stored in the array. DP also involves the creation of an array with the size of ```2``` at the start of the program whilst the Greedy solution uses no array at all and directly performs all calculations needed to get the desired output.
-
+Based on the following tests, we can conclude that the DP approach is the fastest approach for this particular problem. Although the Greedy approach performs faster during Tests #2 and #3, the runtime is higher when smaller numbers were inserted (see Test #1). In comparison, the DP approach runs more consistently and is able to maintain a lower runtime average than the Greedy approach. 
 
 
 
