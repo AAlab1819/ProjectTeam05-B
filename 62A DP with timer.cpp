@@ -3,7 +3,7 @@
 #include <cstdio>
 using namespace std;
 
-int start_time = omp_get_wtime();   //Get starting time
+double start_time = omp_get_wtime();   //Get starting time
 
 int pass[2] = {0,0};
 int pass2[2] = {0,0};    //Initialize result array
@@ -55,6 +55,6 @@ int main()
         cout << "NO";
     }
 
-    int time = omp_get_wtime() - start_time;        //Get final program runtime
-    cout << "\nTime Taken = " << time << endl;      //Print program runtime
+    double time = omp_get_wtime() - start_time;        //Get final program runtime
+    cout << "\nTime Taken = " << time << endl;         //Print program runtime
 }
