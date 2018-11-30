@@ -119,63 +119,42 @@ Afterwards, the program goes to a series of ```if``` conditions to check whether
  Complexity: ```O(1)```, the program only peforms variable initialization, user input, and comparisons within constant time
  
  ### DP Solution
- Submission link: https://codeforces.com/contest/62/submission/46109417
+Submission link: https://codeforces.com/contest/62/submission/46403380
  
-The DP approach for this particular problem isn't much different than using Greedy. Instead of solving one problem first and proceed to the next if no desirable result is found, the program will test the two possibilites (left and right) seperately. First the program will declare an array as global variable:
+Instead of using single use integers, this approach uses arrays to store the inputs and final results. After getting all ```4``` inputs, we first get the result for ```girl & boy``` (in that particular order). The program will go to the ```test``` function to see whether the two inputs are the correct answer or not:
 ```
-int pass[2] = {0,0}; 
-```
-Next, the program will declare a ```void``` function called ```test``` where each individual problems with variable values taken from the ```main``` function whenever it is called:
-```
-void test (int f, int m)
+//Function to test whether the two can hold hands comfortably with the given parameters (check main function)
+int test (int f, int m)
 {
-    //Initialize modifier for girl's left hand 
-    int t1 = f + 1;   
-    int t2 = f - 1;   
+    //Initialize modifier for girl's left hand
+    int t1 = f + 1;
+    int t2 = f - 1;
     int checker = 0;
-    
+
     //If the number of boy's fingers is equal to or more than the girl's fingers
     if (t2 <= m)
     {
-        pass[checker] = 1;    //Problem solved, set current index of array pass to 1 
-        checker++;            //Problem solved, set current index of array pass to 1 
+        checker++;
     }
-    
+
     //If the number of girl's fingers * 2 exceeds the boy's fingers
     if (m <= 2*t1)
     {
-        pass[checker] = 1;    //Problem solved, set current index of array pass to 1 
-        checker++;            //Problem solved, set current index of array pass to 1 
+        checker++;            //Problem solved, set current index of array pass to 1
     }
 
+    return checker;
+
 }
 ```
-The function will check whether the values satisfy the conditions on the ```if``` using the same checking formula as the Greedy solution. If a condition is passed, the function will write the current index of the array ```pass``` to ```1``` (the index is determined by the variable ```checker``` which starts from ```0``` each time the function ```test``` is called) and increase the index count by ```1``` and proceed to the second test.
+The function will set the modifiers on the first function passed and perform two tests to determine whether the two can hold hands or not. The input is deemed a valid answer (```YES```) if the returned value of checker is ```2``` (all two tests passed).
 
-In the main function, the program will intialize the variables and get user input for the ```4``` variables before initializing the modofiers for the girl's arms based on the user input. Then the program will go into a ```for``` loop and test ```f1``` and ```m2``` by passing their values to the function ```test``` and write the results to the array ```pass```. After that, repeat the loop and test ```f2``` and ```m1```.
-```
-for (int a = 0; a < 2; a++)
-    {
-        if (a == 0)
-        {
-            test (f1,m2);
-        }
-        
-        if (a == 1)
-        {
-            test (f2,m1);
-        }
-}
-```
-Afterwards, verify whether the two can hold hands or not by checking the ```pass``` array. If both index ```0``` and ```1``` has a value of ```1```, print ```YES``` to indicate that one of the tests have passed. Otherwise, print ```NO``` when no tests passed.
+We perform the check four times = first to compare ```f[0], m[1]``` with ```f[1], m[0]``` and ```m[1], f[0]``` with ```m[0], f[1]```.
+Get the maximum checker value each two tests (girl first and boy first) and insert the values to their respective answer arrays (```pass``` and ```pass2```).
 
-Complexity:  ```O(2)``` as the program runs two different tests/sub-problems instead of ```n``` user-generated problems/sub-problems.
+After that, the program will check whether the two can hold hands or not by comparing the two arrays. If either of those arrays' first index is equal to ```2```, print ```YES```, otherwise print ```NO```.
 
-Additional notes:
-* There are only two sub-problems for this particular problem that can be solved individually using DP approach
-* Only one of the two tests may succeed. If the first test (```f1``` and ```m2``` succeeded, the second test will fail but will not overwrite the result of the first test as ```checker``` is reset to ```0``` in the next test to prevent the array from being overwritten)
-* The variable ```checker``` in the function ```test``` is always set to ```0``` whenever the function is called so that the program can write ```1``` into the only indexes in the array if the sub-problem has passed the two tests in the function (index ```0``` and ```1```)
-
+Complexity: ```O(n)```
 
 ### Comparison
 We ran several different tests (with increasing values) to obtain the runtime differences between the two approaches:
