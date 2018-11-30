@@ -35,21 +35,21 @@ int main()
 	int f[2];
 	int m[2];
 
-    cin >> f[0] >> f[1];
+    	cin >> f[0] >> f[1];
 	cin >> m[0] >> m[1];
 
 	pass[0] = max(test(f[0],m[1]),test(f[1],m[0]));         //Test first two problems (girl first)
     
-    pass2[0] = max(test(m[1],f[0]),test(m[0],f[1]));        //Test next two problems (boy first)
+    	pass2[0] = max(test(m[1],f[0]),test(m[0],f[1]));        //Test next two problems (boy first)
     
-    //Get YES/No
-    if (pass[0] == 2 || pass[1] == 2)
-    {
-        cout << "YES";
-    }
+    	//Get YES/No
+    	if (pass[0] == 2 || pass[1] == 2)
+    	{
+       	   cout << "YES";
+   	}
 
-    else
-    {
-        cout << "NO";
-    }
+    	else
+   	{
+           cout << "NO";
+    	}
 }
